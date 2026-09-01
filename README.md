@@ -51,7 +51,7 @@ The main objectives of RouteX are:
 
 The basic concept of RouteX is:
 
-```text
+
 CCTV Cameras
       ↓
 Vehicle Detection
@@ -70,7 +70,8 @@ Traffic Analytics
       ↓
 Dashboard & Alerts
 
-📁 Project Structure
+
+#📁 Project Structure
 RouteX/
 │
 ├── frontend/
@@ -155,7 +156,7 @@ PaddleOCR
 ByteTrack
 OSNet
 
-✨ Key Features
+#✨ Key Features
 🚗 Multi-Camera Vehicle Detection
 
 Detect and monitor vehicles across multiple camera locations.
