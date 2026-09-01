@@ -1,0 +1,13 @@
+{
+  "name": "cityvision-ai",
+  "version": "1.0.0",
+  "description": "CityVision AI - Multi-Camera ANPR Trajectory Tracking and Urban Traffic Analytics (SIH26127)",
+  "scripts": {
+    "dev": "npm run dev --prefix frontend",
+    "build": "npm run build --prefix frontend",
+    "preview": "npm run preview --prefix frontend"
+  },
+  "keywords": ["anpr", "traffic", "sih", "ai", "yolo", "tracking"],
+  "author": "",
+  "license": "ISC"
+}
