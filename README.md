@@ -47,30 +47,6 @@ The main objectives of RouteX are:
 
 ---
 
-# 💡 Core Concept
-
-The basic concept of RouteX is:
-
-```text
-CCTV Cameras
-      ↓
-Vehicle Detection
-      ↓
-ANPR / OCR
-      ↓
-Vehicle Tracking
-      ↓
-Vehicle Re-Identification
-      ↓
-Cross-Camera Matching
-      ↓
-Trajectory Reconstruction
-      ↓
-Traffic Analytics
-      ↓
-Dashboard & Alerts 
-
-
 #📁 Project Structure
 RouteX/
 │
@@ -287,6 +263,48 @@ Camera network visualization
 System health monitoring
 Simulation-based demonstration
 FastAPI backend
+# 💡 Core Concept
+
+The basic concept of RouteX is:
+
+
+┌─────────────────────────┐
+│     CCTV Cameras        │
+└────────────┬────────────┘
+             ↓
+┌─────────────────────────┐
+│   Vehicle Detection     │
+└────────────┬────────────┘
+             ↓
+┌─────────────────────────┐
+│      ANPR / OCR         │
+└────────────┬────────────┘
+             ↓
+┌─────────────────────────┐
+│    Vehicle Tracking     │
+└────────────┬────────────┘
+             ↓
+┌─────────────────────────┐
+│ Vehicle Re-Identification│
+└────────────┬────────────┘
+             ↓
+┌─────────────────────────┐
+│  Cross-Camera Matching  │
+└────────────┬────────────┘
+             ↓
+┌─────────────────────────┐
+│ Trajectory Reconstruction│
+└────────────┬────────────┘
+             ↓
+┌─────────────────────────┐
+│   Traffic Analytics     │
+└────────────┬────────────┘
+             ↓
+┌─────────────────────────┐
+│ Dashboard & Alerts      │
+└─────────────────────────┘
+
+
 🚦 RouteX
 
 From Camera Feeds to Connected Vehicle Intelligence.
