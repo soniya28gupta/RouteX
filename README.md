@@ -1,53 +1,171 @@
-# 🚦 RouteX
+🚦 RouteX
+AI-Powered Multi-Camera Vehicle Intelligence & Urban Traffic Analytics
 
-## AI-Powered Multi-Camera Vehicle Intelligence & Urban Traffic Analytics
+RouteX is an intelligent traffic monitoring platform that transforms data from multiple CCTV cameras into connected vehicle intelligence and actionable urban traffic insights.
 
-RouteX is an intelligent traffic monitoring and analytics platform designed to transform data from multiple CCTV cameras into meaningful vehicle intelligence and urban traffic insights.
+It combines Vehicle Detection, ANPR/OCR, Multi-Object Tracking, Vehicle Re-Identification, Cross-Camera Matching, Trajectory Reconstruction, Traffic Analytics, and Alert Detection into a unified platform.
 
-The platform combines **Vehicle Detection, Automatic Number Plate Recognition (ANPR), Optical Character Recognition (OCR), Multi-Object Tracking, Vehicle Re-Identification (Re-ID), Trajectory Reconstruction, Traffic Analytics, and Alert Detection** into a unified system.
+Instead of analyzing every CCTV camera independently, RouteX connects vehicle observations across multiple locations to understand where vehicles are detected, how they move, and how traffic conditions change across the city.
 
-Instead of viewing every CCTV camera independently, RouteX connects vehicle observations across multiple cameras to understand how vehicles move through different locations.
+🎯 Objectives
 
----
+RouteX is designed to:
 
-## 📌 Project Description
+🚗 Detect vehicles from multiple CCTV cameras.
+🔢 Extract license plates using ANPR and OCR.
+🎯 Track vehicles across video frames.
+🧠 Re-identify vehicles across different cameras.
+🔗 Connect detections from multiple camera locations.
+🗺️ Reconstruct complete vehicle trajectories.
+📊 Analyze traffic volume, flow, speed and congestion.
+🚨 Detect traffic anomalies and generate alerts.
+📡 Provide a centralized real-time traffic intelligence dashboard.
+💡 Core Concept
+CCTV Cameras
+      ↓
+Vehicle Detection
+      ↓
+ANPR / OCR
+      ↓
+Vehicle Tracking
+      ↓
+Vehicle Re-Identification
+      ↓
+Cross-Camera Matching
+      ↓
+Trajectory Reconstruction
+      ↓
+Traffic Analytics
+      ↓
+Dashboard & Alerts
+✨ Key Features
+📹 Multi-Camera Monitoring
 
-Modern cities have a large number of CCTV cameras installed at roads, junctions, highways, and important public locations. These cameras continuously generate valuable traffic information, but analyzing each camera separately makes it difficult to understand complete vehicle movement.
+Monitor multiple CCTV camera locations through a centralized interface.
 
-For example, a vehicle detected at one camera may later appear at another camera several kilometers away. Traditional camera-based monitoring may treat these as separate events.
+🚗 Vehicle Detection
 
-RouteX addresses this problem by connecting these observations through AI-based vehicle intelligence.
+Detect vehicles from camera feeds using computer vision models.
 
-The system can:
+🔢 ANPR / OCR
 
-- Detect vehicles from camera feeds.
-- Recognize vehicle license plates.
-- Assign tracking identities to vehicles.
-- Match vehicles across different cameras.
-- Reconstruct vehicle journeys.
-- Visualize trajectories on maps.
-- Analyze traffic flow and congestion.
-- Generate alerts for unusual traffic conditions.
-- Present all information through a centralized dashboard.
+Automatically detect and recognize vehicle license plates and generate confidence scores.
 
----
+🎯 Vehicle Tracking
 
-# 🎯 Objectives
+Track detected vehicles across consecutive frames using multi-object tracking.
 
-The main objectives of RouteX are:
+🧠 Vehicle Re-Identification
 
-1. **Automate vehicle detection** from CCTV footage.
-2. **Recognize license plates** using ANPR and OCR.
-3. **Track vehicles** across multiple video frames.
-4. **Re-identify vehicles** across different camera locations.
-5. **Reconstruct vehicle trajectories** from camera observations.
-6. **Analyze urban traffic patterns** using collected vehicle data.
-7. **Detect congestion and abnormal movement patterns.**
-8. **Provide a centralized traffic intelligence dashboard.**
+Identify the same vehicle across different camera views using visual vehicle features.
 
----
+🔗 Cross-Camera Matching
 
-#📁 Project Structure
+Connect vehicle detections from different cameras to create a unified vehicle journey.
+
+🗺️ Trajectory Reconstruction
+
+Reconstruct and display vehicle movement between camera locations.
+
+📊 Urban Traffic Analytics
+
+Analyze:
+
+Traffic volume
+Vehicle flow
+Average speed
+Congestion
+Traffic hotspots
+Camera-wise traffic activity
+🚨 Alert & Anomaly Detection
+
+Generate alerts for events such as:
+
+Unusual vehicle movement
+Traffic congestion
+Abnormal traffic patterns
+Camera-related issues
+🖥️ Unified Dashboard
+
+Provides a centralized view of:
+
+Vehicles
+Cameras
+Trajectories
+Traffic analytics
+Alerts
+System health
+🏗️ System Architecture
+                    ┌──────────────────┐
+                    │   CCTV Cameras   │
+                    └────────┬─────────┘
+                             ↓
+                    ┌──────────────────┐
+                    │ Vehicle Detection│
+                    │      YOLO        │
+                    └────────┬─────────┘
+                             ↓
+                    ┌──────────────────┐
+                    │    ANPR / OCR    │
+                    │   Plate Reading  │
+                    └────────┬─────────┘
+                             ↓
+                    ┌──────────────────┐
+                    │ Vehicle Tracking │
+                    │    ByteTrack     │
+                    └────────┬─────────┘
+                             ↓
+                    ┌──────────────────┐
+                    │ Vehicle Re-ID    │
+                    │     OSNet        │
+                    └────────┬─────────┘
+                             ↓
+                    ┌──────────────────┐
+                    │ Cross-Camera     │
+                    │    Matching      │
+                    └────────┬─────────┘
+                             ↓
+                    ┌──────────────────┐
+                    │   Trajectory     │
+                    │ Reconstruction   │
+                    └────────┬─────────┘
+                             ↓
+              ┌──────────────┴──────────────┐
+              ↓                             ↓
+      ┌────────────────┐            ┌────────────────┐
+      │Traffic Analytics│            │ Alerts & Events │
+      └───────┬────────┘            └───────┬────────┘
+              └──────────────┬──────────────┘
+                             ↓
+                    ┌──────────────────┐
+                    │   Web Dashboard  │
+                    └──────────────────┘
+🛠️ Technology Stack
+Frontend
+React
+TypeScript
+Tailwind CSS
+Vite
+Zustand
+Recharts
+React-Leaflet
+OpenStreetMap
+Backend
+Python
+FastAPI
+WebSocket
+Database
+SQLite
+AI & Computer Vision
+Python
+YOLOv8
+OpenCV
+PyTorch
+PaddleOCR
+ByteTrack
+OSNet
+
+📁 Project Structure
 RouteX/
 │
 ├── frontend/
@@ -107,206 +225,3 @@ RouteX/
 │
 ├── .gitignore
 └── README.md
-
-🛠️ Technology Stack
-Frontend
-React
-TypeScript
-Tailwind CSS
-Vite
-Zustand
-Recharts
-React-Leaflet
-OpenStreetMap
-Backend
-Python
-FastAPI
-WebSocket
-Database
-SQLite
-AI / Computer Vision
-Python
-OpenCV
-YOLOv8
-PyTorch
-PaddleOCR
-ByteTrack
-OSNet
-
-#✨ Key Features
-🚗 Multi-Camera Vehicle Detection
-
-Detect and monitor vehicles across multiple camera locations.
-
-🔢 ANPR / OCR
-
-Recognize license plates and associate them with vehicle detections.
-
-🎯 Vehicle Tracking
-
-Track vehicles across consecutive video frames.
-
-🧠 Vehicle Re-Identification
-
-Match the same vehicle across different camera views using visual and contextual features.
-
-🛣️ Trajectory Reconstruction
-
-Combine camera detections to reconstruct a vehicle's journey.
-
-🗺️ Interactive Trajectory Map
-
-Visualize vehicle movement and camera transitions geographically.
-
-📊 Traffic Analytics
-
-Analyze:
-
-Traffic volume
-Vehicle categories
-Traffic flow
-Average speed
-Congestion
-Traffic hotspots
-🚨 Alerts
-
-Identify and display important traffic and system events.
-
-📹 Camera Network
-
-Monitor camera locations, connectivity and vehicle transitions.
-
-🖥️ Unified Dashboard
-
-Provides a centralized interface for monitoring vehicles, cameras, trajectories and traffic conditions.
-
-🚀 Installation
-Prerequisites
-Node.js
-npm
-Python 3.10+
-Git
-Frontend
-cd frontend
-npm install
-npm run dev
-
-Open:
-http://localhost:5173
-Backend
-cd backend
-python -m venv venv
-
-Windows:
-
-venv\Scripts\activate
-
-Install dependencies:
-
-pip install -r requirements.txt
-
-Start FastAPI:
-
-uvicorn main:app --reload --port 8000
-🔐 Privacy & Responsible AI
-
-RouteX is designed with privacy-aware principles:
-
-Role-based access
-Audit logging
-Controlled vehicle queries
-Configurable data retention
-Secure communication
-Encryption
-Metadata-focused storage
-On-premise processing capability
-
-Real-world deployment should undergo appropriate privacy, legal and security review.
-
-📈 Future Scope
-Real-time RTSP camera integration
-GPU-based inference
-Improved ANPR accuracy
-Advanced vehicle Re-ID
-PostgreSQL/PostGIS integration
-Edge AI deployment
-Predictive congestion analysis
-Accident detection
-Emergency vehicle detection
-Smart traffic signal integration
-City-scale distributed processing
-🌆 Applications
-
-RouteX can support:
-
-Smart traffic management
-Urban mobility analysis
-Traffic congestion monitoring
-Vehicle journey analysis
-Traffic hotspot identification
-Infrastructure planning
-Intelligent transportation systems
-Real-time traffic monitoring
-📌 Project Status
-
-RouteX currently provides a functional prototype featuring:
-
-Multi-camera monitoring
-Vehicle detection interface
-ANPR demonstration
-Vehicle tracking
-Cross-camera matching
-Trajectory visualization
-Traffic analytics
-Alert management
-Camera network visualization
-System health monitoring
-Simulation-based demonstration
-FastAPI backend
-# 💡 Core Concept
-
-The basic concept of RouteX is:
-
-```text
-┌─────────────────────────┐
-│     CCTV Cameras        │
-└────────────┬────────────┘
-             ↓
-┌─────────────────────────┐
-│   Vehicle Detection     │
-└────────────┬────────────┘
-             ↓
-┌─────────────────────────┐
-│      ANPR / OCR         │
-└────────────┬────────────┘
-             ↓
-┌─────────────────────────┐
-│    Vehicle Tracking     │
-└────────────┬────────────┘
-             ↓
-┌─────────────────────────┐
-│ Vehicle Re-Identification│
-└────────────┬────────────┘
-             ↓
-┌─────────────────────────┐
-│  Cross-Camera Matching  │
-└────────────┬────────────┘
-             ↓
-┌─────────────────────────┐
-│ Trajectory Reconstruction│
-└────────────┬────────────┘
-             ↓
-┌─────────────────────────┐
-│   Traffic Analytics     │
-└────────────┬────────────┘
-             ↓
-┌─────────────────────────┐
-│ Dashboard & Alerts      │
-└─────────────────────────┘
-
-
-🚦 RouteX
-
-From Camera Feeds to Connected Vehicle Intelligence.
-
-Detect → Identify → Track → Reconstruct → Analyze
