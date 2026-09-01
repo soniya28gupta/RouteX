@@ -267,7 +267,7 @@ FastAPI backend
 
 The basic concept of RouteX is:
 
-
+```text
 ┌─────────────────────────┐
 │     CCTV Cameras        │
 └────────────┬────────────┘
