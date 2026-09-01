@@ -107,6 +107,7 @@ RouteX/
 │
 ├── .gitignore
 └── README.md
+
 🛠️ Technology Stack
 Frontend
 React
@@ -191,7 +192,6 @@ npm install
 npm run dev
 
 Open:
-
 http://localhost:5173
 Backend
 cd backend
