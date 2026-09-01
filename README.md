@@ -1,183 +1,293 @@
-HEAD
-# CityVision AI
+# 🚦 RouteX
 
-**Multi-Camera ANPR · Vehicle Intelligence · Urban Traffic Analytics**
+## AI-Powered Multi-Camera Vehicle Intelligence & Urban Traffic Analytics
 
-> SIH26127 — City-Wide AI Engine for Multi-Camera ANPR Trajectory Tracking and Urban Traffic Analytics
+RouteX is an intelligent traffic monitoring and analytics platform designed to transform data from multiple CCTV cameras into meaningful vehicle intelligence and urban traffic insights.
 
----
+The platform combines **Vehicle Detection, Automatic Number Plate Recognition (ANPR), Optical Character Recognition (OCR), Multi-Object Tracking, Vehicle Re-Identification (Re-ID), Trajectory Reconstruction, Traffic Analytics, and Alert Detection** into a unified system.
 
-## 🚀 Quick Start (Frontend Only — Recommended for Demo)
-
-The frontend is **fully self-contained** with embedded seed data and a built-in simulation engine. No backend required for the demo.
-
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
-Open: **http://localhost:5173**
+Instead of viewing every CCTV camera independently, RouteX connects vehicle observations across multiple cameras to understand how vehicles move through different locations.
 
 ---
 
-## 🧠 Demo Flow (30-second showcase)
+## 📌 Project Description
 
-1. **Open Overview Dashboard** — see KPI cards: 12,486 vehicles, 96.8% ANPR accuracy, 24 cameras
-2. **Click "▶ Start AI Simulation"** (top-right button)
-3. **Watch** — toast notifications fire as MP04AB1234 is detected at CAM-001 → CAM-002 → CAM-003 → CAM-005
-4. **Go to Live Cameras** — see bounding boxes animate on camera feeds
-5. **Go to Vehicle Tracking** — search `MP04AB1234` → see full journey timeline
-6. **Go to Trajectory Explorer** — see the animated route on the Bhopal city map
-7. **Go to Traffic Analytics** — charts auto-populated with traffic volume, congestion, flow
-8. **Go to Alerts** — see 6 real alerts including suspicious vehicle movement and congestion
-9. **Go to Camera Network** — Re-ID process visual + camera topology diagram
-10. **Go to System Health** — AI pipeline + architecture diagram + privacy controls
+Modern cities have a large number of CCTV cameras installed at roads, junctions, highways, and important public locations. These cameras continuously generate valuable traffic information, but analyzing each camera separately makes it difficult to understand complete vehicle movement.
+
+For example, a vehicle detected at one camera may later appear at another camera several kilometers away. Traditional camera-based monitoring may treat these as separate events.
+
+RouteX addresses this problem by connecting these observations through AI-based vehicle intelligence.
+
+The system can:
+
+- Detect vehicles from camera feeds.
+- Recognize vehicle license plates.
+- Assign tracking identities to vehicles.
+- Match vehicles across different cameras.
+- Reconstruct vehicle journeys.
+- Visualize trajectories on maps.
+- Analyze traffic flow and congestion.
+- Generate alerts for unusual traffic conditions.
+- Present all information through a centralized dashboard.
 
 ---
 
-## 📁 Project Structure
+# 🎯 Objectives
 
-```
+The main objectives of RouteX are:
+
+1. **Automate vehicle detection** from CCTV footage.
+2. **Recognize license plates** using ANPR and OCR.
+3. **Track vehicles** across multiple video frames.
+4. **Re-identify vehicles** across different camera locations.
+5. **Reconstruct vehicle trajectories** from camera observations.
+6. **Analyze urban traffic patterns** using collected vehicle data.
+7. **Detect congestion and abnormal movement patterns.**
+8. **Provide a centralized traffic intelligence dashboard.**
+
+---
+
+# 💡 Core Concept
+
+The basic concept of RouteX is:
+
+```text
+CCTV Cameras
+      ↓
+Vehicle Detection
+      ↓
+ANPR / OCR
+      ↓
+Vehicle Tracking
+      ↓
+Vehicle Re-Identification
+      ↓
+Cross-Camera Matching
+      ↓
+Trajectory Reconstruction
+      ↓
+Traffic Analytics
+      ↓
+Dashboard & Alerts
+
+📁 Project Structure
 RouteX/
-├── frontend/              React + TypeScript + Tailwind + Vite
-│   ├── src/
-│   │   ├── pages/         9 application pages
-│   │   ├── components/    Layout, Toast, Camera panels
-│   │   ├── data/          seedData.ts — 24 cameras, 8 vehicles, demo journey
-│   │   ├── services/      api.ts (with fallback), simulation.ts (frontend engine)
-│   │   ├── store/         simulationStore.ts (Zustand)
-│   │   └── types/         index.ts — TypeScript interfaces
-│   └── package.json
 │
-└── backend/               Python FastAPI (optional)
-    ├── main.py            FastAPI app + WebSocket
-    ├── database.py        SQLite init + seed data
-    ├── simulation.py      AI simulation engine
-    ├── models.py          Pydantic models
-    ├── routers/           cameras, vehicles, detections, analytics, alerts
-    └── requirements.txt
-```
+├── frontend/
+│   │
+│   ├── src/
+│   │   │
+│   │   ├── pages/
+│   │   │   ├── Overview/
+│   │   │   ├── LiveCameras/
+│   │   │   ├── VehicleTracking/
+│   │   │   ├── TrajectoryExplorer/
+│   │   │   ├── TrafficAnalytics/
+│   │   │   ├── Alerts/
+│   │   │   ├── CameraNetwork/
+│   │   │   └── SystemHealth/
+│   │   │
+│   │   ├── components/
+│   │   │   ├── Layout/
+│   │   │   ├── CameraPanel/
+│   │   │   ├── Toast/
+│   │   │   └── Common/
+│   │   │
+│   │   ├── data/
+│   │   │   └── seedData.ts
+│   │   │
+│   │   ├── services/
+│   │   │   ├── api.ts
+│   │   │   └── simulation.ts
+│   │   │
+│   │   ├── store/
+│   │   │   └── simulationStore.ts
+│   │   │
+│   │   ├── types/
+│   │   │   └── index.ts
+│   │   │
+│   │   ├── App.tsx
+│   │   └── main.tsx
+│   │
+│   ├── package.json
+│   ├── vite.config.ts
+│   └── tsconfig.json
+│
+├── backend/
+│   │
+│   ├── routers/
+│   │   ├── cameras.py
+│   │   ├── vehicles.py
+│   │   ├── detections.py
+│   │   ├── analytics.py
+│   │   └── alerts.py
+│   │
+│   ├── main.py
+│   ├── database.py
+│   ├── models.py
+│   ├── simulation.py
+│   └── requirements.txt
+│
+├── .gitignore
+└── README.md
+🛠️ Technology Stack
+Frontend
+React
+TypeScript
+Tailwind CSS
+Vite
+Zustand
+Recharts
+React-Leaflet
+OpenStreetMap
+Backend
+Python
+FastAPI
+WebSocket
+Database
+SQLite
+AI / Computer Vision
+Python
+OpenCV
+YOLOv8
+PyTorch
+PaddleOCR
+ByteTrack
+OSNet
 
----
+✨ Key Features
+🚗 Multi-Camera Vehicle Detection
 
-## 🛠 Full Stack Setup (with Python Backend)
+Detect and monitor vehicles across multiple camera locations.
 
-### Backend
+🔢 ANPR / OCR
 
-```bash
-cd backend
-pip install -r requirements.txt
-uvicorn main:app --reload --port 8000
-```
+Recognize license plates and associate them with vehicle detections.
 
-Then in `frontend/src/services/api.ts`, set:
-```ts
-const USE_SEED = false;
-```
+🎯 Vehicle Tracking
 
-### Frontend
+Track vehicles across consecutive video frames.
 
-```bash
+🧠 Vehicle Re-Identification
+
+Match the same vehicle across different camera views using visual and contextual features.
+
+🛣️ Trajectory Reconstruction
+
+Combine camera detections to reconstruct a vehicle's journey.
+
+🗺️ Interactive Trajectory Map
+
+Visualize vehicle movement and camera transitions geographically.
+
+📊 Traffic Analytics
+
+Analyze:
+
+Traffic volume
+Vehicle categories
+Traffic flow
+Average speed
+Congestion
+Traffic hotspots
+🚨 Alerts
+
+Identify and display important traffic and system events.
+
+📹 Camera Network
+
+Monitor camera locations, connectivity and vehicle transitions.
+
+🖥️ Unified Dashboard
+
+Provides a centralized interface for monitoring vehicles, cameras, trajectories and traffic conditions.
+
+🚀 Installation
+Prerequisites
+Node.js
+npm
+Python 3.10+
+Git
+Frontend
 cd frontend
 npm install
 npm run dev
-```
 
-The frontend proxy in `vite.config.ts` will route `/api` → `http://localhost:8000`.
+Open:
 
----
+http://localhost:5173
+Backend
+cd backend
+python -m venv venv
 
-## 🔌 Connecting Real AI Models
+Windows:
 
-The architecture is designed for plug-and-play AI integration:
+venv\Scripts\activate
 
-| Interface Point | Replace with |
-|---|---|
-| `backend/simulation.py` | Real YOLO detections from RTSP streams |
-| `DEMO_STEPS` events | YOLOv8 + ByteTrack bounding boxes |
-| Plate confidence values | PaddleOCR / EasyOCR output |
-| Cross-camera match events | OSNet Re-ID feature similarity |
-| Camera feeds (Canvas) | HLS/RTSP stream via `<video>` element |
+Install dependencies:
 
----
+pip install -r requirements.txt
 
-## 📷 Demo Cameras (Bhopal, MP)
+Start FastAPI:
 
-| ID | Location | Lat | Lon |
-|---|---|---|---|
-| CAM-001 | MP Nagar Junction | 23.2337 | 77.4325 |
-| CAM-002 | Board Office Square | 23.2441 | 77.4073 |
-| CAM-003 | Habibganj Junction | 23.2298 | 77.4341 |
-| CAM-004 | Lalghati | 23.2600 | 77.3700 |
-| CAM-005 | Airport Road | 23.2876 | 77.3370 |
-| CAM-006 | BHEL Square | 23.2700 | 77.4100 |
-| ... | 24 total | | |
+uvicorn main:app --reload --port 8000
+🔐 Privacy & Responsible AI
 
----
+RouteX is designed with privacy-aware principles:
 
-## 🗺 Demo Vehicle Journey
+Role-based access
+Audit logging
+Controlled vehicle queries
+Configurable data retention
+Secure communication
+Encryption
+Metadata-focused storage
+On-premise processing capability
 
-```
-MP04AB1234 (White Sedan · V-1042)
+Real-world deployment should undergo appropriate privacy, legal and security review.
 
-10:02:14 → CAM-001 (MP Nagar Junction)       — Plate: 98.1%
-10:08:42 → CAM-002 (Board Office Square)     — Plate: 96.4% · Match: 96.4%
-10:16:18 → CAM-003 (Habibganj Junction)      — Plate: 94.7% · Match: 95.1%
-10:24:51 → CAM-005 (Airport Road)            — Plate: 97.2%
+📈 Future Scope
+Real-time RTSP camera integration
+GPU-based inference
+Improved ANPR accuracy
+Advanced vehicle Re-ID
+PostgreSQL/PostGIS integration
+Edge AI deployment
+Predictive congestion analysis
+Accident detection
+Emergency vehicle detection
+Smart traffic signal integration
+City-scale distributed processing
+🌆 Applications
 
-Journey: 22m 37s · 12.4 km
-```
+RouteX can support:
 
----
+Smart traffic management
+Urban mobility analysis
+Traffic congestion monitoring
+Vehicle journey analysis
+Traffic hotspot identification
+Infrastructure planning
+Intelligent transportation systems
+Real-time traffic monitoring
+📌 Project Status
 
-## 🧩 Tech Stack
+RouteX currently provides a functional prototype featuring:
 
-| Layer | Technology |
-|---|---|
-| Frontend Framework | React 19 + TypeScript |
-| Styling | Tailwind CSS v4 |
-| Icons | Lucide React |
-| Charts | Recharts |
-| Map | React-Leaflet + OpenStreetMap |
-| State | Zustand |
-| Backend | Python FastAPI |
-| Database | SQLite (aiosqlite) |
-| Real-time | WebSocket (FastAPI) |
-| Vehicle Detection | YOLOv8 (simulated) |
-| Multi-Object Tracking | ByteTrack (simulated) |
-| ANPR/OCR | PaddleOCR (simulated) |
-| Re-Identification | OSNet (simulated) |
+Multi-camera monitoring
+Vehicle detection interface
+ANPR demonstration
+Vehicle tracking
+Cross-camera matching
+Trajectory visualization
+Traffic analytics
+Alert management
+Camera network visualization
+System health monitoring
+Simulation-based demonstration
+FastAPI backend
+🚦 RouteX
 
----
+From Camera Feeds to Connected Vehicle Intelligence.
 
-## 🔒 Privacy & Responsible AI
-
-- Role-based access control (architecture level)
-- Audit logging for all vehicle queries
-- Configurable data retention (30-day default)
-- AES-256 encryption at rest, TLS 1.3 in transit
-- Only license plates and vehicle metadata stored — no driver identity
-- On-premise AI inference — no raw video sent externally
-- **Note:** This prototype demonstrates intended controls. Legal compliance requires certified security audit.
-
----
-
-## 🏆 SIH26127 — Smart India Hackathon 2026
-
-**Problem Statement:** City-Wide AI Engine for Multi-Camera ANPR Trajectory Tracking and Urban Traffic Analytics
-
-**Key Features Demonstrated:**
-- ✅ Multi-camera vehicle tracking
-- ✅ ANPR with confidence scores
-- ✅ Cross-camera vehicle re-identification
-- ✅ Trajectory reconstruction on interactive map
-- ✅ Urban traffic analytics (volume, speed, congestion, flow)
-- ✅ Alert & anomaly detection
-- ✅ AI pipeline visualization
-- ✅ System architecture view
-- ✅ Privacy & responsible AI framework
-- ✅ Real-time simulation demo mode
-  
-# RouteX
-
+Detect → Identify → Track → Reconstruct → Analyze
